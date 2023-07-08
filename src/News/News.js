@@ -86,7 +86,7 @@ function News() {
 
 
     <div className='news-display'>
-      {newsList.map(news =>{
+      {newsList?.map(news =>{
         return <MyNews key={news.urlImage} news={news}/>
       })}
     </div> 

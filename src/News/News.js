@@ -3,13 +3,27 @@ import MyNews from './MyNews';
 import './News.css';
 
 function News() {
+
+  function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${day}-${month}`;
+    
+  }
+  
+  const currentDate = new Date();
+  const formattedDate = formatDate(currentDate);
+  
  
   const apiKey = `a74c9b1868b2420eb72f9b07cc3d15dc`;
   const [newsList , setNewsList] = useState([]);
   const [query , setQuery] = useState('Modi');
-  const apiUrl =`https://newsapi.org/v2/everything?q=${query}&from=2023-06-08&sortBy=publishedAt&apiKey=${apiKey}`;
+  const apiUrl =`https://newsapi.org/v2/everything?q=${query}&from=${formattedDate}&sortBy=publishedAt&apiKey=${apiKey}`;
+  // const apiUrl =`https://newsapi.org/v2/everything?q=${query}&from=2023-15-08&sortBy=publishedAt&apiKey=${apiKey}`;
    
   
+
   const list = [
     {
       id: 1 ,

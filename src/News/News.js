@@ -16,7 +16,7 @@ function News() {
   const formattedDate = formatDate(currentDate);
   
  
-  const apiKey = `a74c9b1868b2420eb72f9b07cc3d15dc`;
+  const apiKey = `18d7e8310cf648d1ba25d8e3638186d5`;
   const [newsList , setNewsList] = useState([]);
   const [query , setQuery] = useState('Modi');
   const apiUrl =`https://newsapi.org/v2/everything?q=${query}&from=${formattedDate}&sortBy=publishedAt&apiKey=${apiKey}`;
@@ -24,24 +24,7 @@ function News() {
    
   
 
-  const list = [
-    {
-      id: 1 ,
-      name: 'India'
-    },
-    {
-      id: 2 ,
-      name: 'Sports'
-    },
-    {
-      id: 3 ,
-      name: 'Entertainment'
-    },
-    {
-      id: 4 , 
-      name: 'Political'
-    }
-  ];
+  
 
   const queryInputRef = useRef(null);
   const queryValueRef = useRef(null);
@@ -55,8 +38,6 @@ function News() {
 
       const response = await fetch(apiUrl);
       const jsonData = await response.json();
-      
-      console.log(response);
 
       setNewsList(jsonData.articles);
     }catch(e){
